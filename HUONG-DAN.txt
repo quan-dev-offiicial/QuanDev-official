@@ -1,0 +1,22 @@
+QUÂN DEV V2 — GÓI UPLOAD GITHUB PAGES (KHÔNG CÓ THƯ MỤC LỒNG)
+
+GIẢI NÉN FILE ZIP. BÊN TRONG SẼ THẤY TRỰC TIẾP:
+- index.html     (trang chính)
+- styles.css     (giao diện)
+- app.js         (hoạt ảnh, tính giá, lọc dự án, gửi form)
+- favicon.svg    (biểu tượng website)
+- HUONG-DAN.txt  (file này)
+
+CÁCH UPLOAD:
+1. Mở https://github.com/quan-dev-offiicial/QuanDev-official
+2. Chọn Add file > Upload files (nếu nút Add file không thấy, mở trang Code của repo).
+3. GIẢI NÉN TRƯỚC, sau đó kéo 4 file index.html, styles.css, app.js, favicon.svg cùng lúc vào trang upload.
+4. Khi hỏi về file trùng tên, thay thế các file đang có ở gốc repo; Commit changes.
+5. KHÔNG upload file ZIP trực tiếp. KHÔNG tạo thư mục assets mới. KHÔNG upload nguyên thư mục QuanDev-Official-Upload.
+6. GitHub Pages Settings > Pages: main / (root). Sau khi deploy xong, tải lại Ctrl+Shift+R hoặc mở tab ẩn danh.
+
+GHI CHÚ:
+- Repo hiện tại có thể còn file README.md hoặc thư mục assets cũ; không cần xóa chúng để trang chạy. Quan trọng nhất là 4 file mới phải cùng nằm ở gốc.
+- Form sử dụng FormSubmit để gửi yêu cầu về Gmail, có thể phải xác nhận email lần đầu. Cần test bằng cách gửi yêu cầu thật trên trang đã deploy. Form không có database; nếu email không đến sẽ không có bản lưu server.
+- Trước khi quảng cáo: xác nhận email, Zalo, mức giá và kiểm tra các link dự án.
+- Website này không có Dashboard.
