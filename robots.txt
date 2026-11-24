@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://quan-dev-offiicial.github.io/QuanDev-official/sitemap.xml

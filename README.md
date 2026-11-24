@@ -1,48 +1,59 @@
-# Quân Dev — Website mới (bản MVP, KHÔNG có Dashboard)
+# QUÂN DEV — Studio Edition V3 (24/11/2026)
 
-Website **mới hoàn toàn**, không sửa/copy mã nguồn từ Quân Dev V6. Dark Premium + responsive. Thiết kế để đăng trên GitHub Pages, Netlify hoặc dịch vụ host tĩnh khác.
+**Nâng cấp thực sự từ hướng nội dung/source của repository** `quan-dev-offiicial/QuanDev-official` (GitHub Pages). Bản này có thiết kế editorial cream / forest / terracotta, thay cho bố cục dark-dashboard cũ. Không dùng framework, không build step và không phụ thuộc CDN để render website.
 
-## File
-- `index.html` — cấu trúc trang.
-- `assets/styles.css` — giao diện responsive.
-- `assets/app.js` — bộ lọc portfolio, chi tiết dự án, blog, tính giá, gửi form.
-- `assets/favicon.svg` — biểu tượng.
+## Những gì ĐÃ HOÀN THÀNH trong source
 
-## Chức năng đã xây
-- Trang chủ, 3 dự án trong Portfolio (2 liên kết website, 1 **đang phát triển**), lọc dự án.
-- Dịch vụ, quy trình, FAQ, bài blog có thể đọc ở hộp thoại.
-- Tính giá trực tiếp, chi phí cộng thêm, chuyển cấu hình sang biểu mẫu.
-- Form gửi yêu cầu về email thông qua FormSubmit AJAX; có kiểm tra đầu vào, đồng ý gửi, trạng thái đang gửi/thành công/lỗi, honeypot, sao chép yêu cầu khi lỗi.
-- Giao diện responsive mobile + laptop, menu mobile, cơ bản về accessibility, description và Open Graph.
-- Khu vực đánh giá minh bạch: **chưa có lời đánh giá thật, không sử dụng nội dung bịa**.
+- Trang chủ thiết kế mới hoàn toàn, responsive, menu mobile và trạng thái focus keyboard.
+- 3 case study thật về **những dự án do Quân Dev xây/đang nghiên cứu**. Giữ nhãn rõ: Lam Handmade và Bánh Bèo Bà Ba là website mẫu; Dòng Sử Việt vẫn đang phát triển. **Không bịa KPI, khách hàng, đánh giá hoặc giao dịch.**
+- 4 demo có thao tác THẬT và dữ liệu giả để minh họa: `demos/am-thuc/` (lọc menu + giỏ mẫu), `demos/homestay/` (chọn phòng/ngày và phiếu mẫu), `demos/barber/` (chọn dịch vụ/giờ và phiếu mẫu), `demos/catalog/` (lọc sản phẩm + giỏ mẫu). Không phải đặt chỗ hoặc thanh toán thật; các trang đã noindex.
+- Bộ tính giá hoạt động trên trình duyệt: 4 gói, số trang, form, giỏ hàng, cờ yêu cầu SEO/đăng nhập nâng cao; bảng chi tiết; sao chép, tải TXT, chuyển cấu hình xuống form. Mức giá **GIỮ TỪ SOURCE GỐC**, phải xác nhận trước khi giao dịch.
+- Form yêu cầu dùng FormSubmit AJAX, kiểm tra dữ liệu và consent, trạng thái chờ, lỗi, thành công thật theo response, honeypot; fallback sao chép/email/Zalo.
+- 3 bài viết nội dung hữu ích; FAQ, quy trình, chính sách quyền riêng tư.
+- SEO kỹ thuật: title/description riêng, canonical đúng URL GitHub Pages hiện tại, OG card, sitemap/robots, schema cơ bản, 404, semantic HTML.
+- Performance: không cần thư viện JS bên ngoài, không gọi Google Fonts, icon/screenshot bằng CSS, ảnh OG nội bộ, phù hợp laptop/điện thoại yếu.
+- Accessibility: skip link, semantic landmarks, input labels, focus states, menu ARIA, `prefers-reduced-motion`.
 
-## Trước khi công khai cho khách
-1. **Xác nhận lại email đích** `minhquanhangtran@gmail.com` trong `assets/app.js` và email tại `index.html`.
-2. **Xác nhận số điện thoại/Zalo** `0975 853 340` (lấy từ nguồn website cũ); chỉnh nếu đã đổi.
-3. Deploy thử lên GitHub Pages hoặc hosting có HTTPS.
-4. **Kích hoạt FormSubmit**: Lần gửi đầu có thể kích hoạt email xác nhận. Nếu chưa xác nhận email, khách có thể chưa được nhận thông báo về Gmail. Hãy test gửi thật một lần từ trang đã deploy và kiểm tra cả hộp thư chính lẫn spam.
-5. Test tất cả 4 loại gói, tăng giảm trang, addon, chuyển cấu hình sang form.
-6. Kiểm tra lại liên kết Lam Handmade `https://quan-dev-offiicial.github.io/Lam_Handmade/` và Bánh Bèo Bà Ba `https://banhbeobaba.github.io/banh-beo-ba-ba-v1/` trên trình duyệt thực tế.
-7. Xác minh bảng giá nội bộ trước khi quảng cáo; bảng giá là **đề xuất** và chưa bao gồm tên miền/hosting.
-8. Sau khi mua tên miền, bổ sung canonical, `og:url`, sitemap với URL mới.
-9. Bổ sung chính sách quyền riêng tư đầy đủ nếu triển khai thương mại; FormSubmit là dịch vụ gửi dữ liệu bên thứ ba.
+## Những điều CẦN THỰC HIỆN NGOÀI SOURCE (không được gọi là đã xong)
 
-## Giới hạn hiện tại
-- Không có Dashboard / backend / database. Form yêu cầu **chỉ chuyển qua Gmail**, không có bản lưu riêng trên máy chủ.
-- Gửi form thất bại: hiện cảnh báo và nút sao chép nội dung; không hiển thị thông báo thành công giả.
-- FormSubmit cần được kích hoạt và chạy qua mạng. Mở file HTML offline vẫn xem được giao diện và tính giá, **không gửi email khi offline**.
-- Không có hệ thống blog CMS hoặc review CMS: bài viết được lưu trong JS, muốn sửa cần chỉnh code. Phần đánh giá không bịa nội dung.
-- Tên miền, hosting, các gói trả phí và tính năng nâng cao chưa được triển khai.
-- Giá gốc trong JS: Landing 790k, Doanh nghiệp 1.49tr, Catalog 1.99tr, Portfolio 990k; trang thêm +250k, form +250k, giỏ hàng trên thiết bị +300k. Phạm vi cần báo giá riêng khi có chức năng nâng cao.
+1. **FormSubmit**: `app.js` gửi tới `https://formsubmit.co/ajax/minhquanhangtran@gmail.com`. Chủ email phải xác minh/kích hoạt FormSubmit, gửi mẫu với internet và kiểm tra hộp thư spam. Chưa kiểm thử việc nhận mail thật trên hòm thư. Không có database lưu lead trên máy chủ.
+2. **Thống kê lượt truy cập/nhấp/gửi**: cần kết nối dịch vụ analytics (chẳng hạn Cloudflare Web Analytics hoặc một endpoint riêng) và cập nhật quyền riêng tư. Không đưa số lượt giả. Hiện chưa triển khai tracking global để giữ privacy-by-default.
+3. **Hệ thống đăng nhập khách, dashboard realtime, thanh toán**: cần backend/database/Auth server và cấu hình quyền bảo mật. GitHub Pages chỉ host tĩnh, không thể triển khai backend đó bằng HTML thuần.
+4. **Chính sách bán hàng**: xác nhận giá, bảo hành, chính sách sửa đổi, quyền sở hữu, tên miền/hosting với chủ dự án trước khi coi là cam kết chính thức.
+5. **Liên kết website mẫu**: xác nhận Lam Handmade và Bánh Bèo Bà Ba đang truy cập được. Các URL được giữ từ source gốc, không thể bảo đảm chúng còn live.
+6. **Ảnh chụp sản phẩm/feedback**: thay các bản đồ họa mô phỏng bằng screenshot thật của sản phẩm nếu có; chỉ thêm lời đánh giá đã được khách xác nhận.
 
-## Đăng GitHub Pages nhanh
-Tạo **repository mới**, tải 2 mục `index.html` và `assets/` lên nhánh `main`, vào Settings > Pages, chọn deploy from branch (nếu repo cho phép). Đợi GitHub thông báo build thành công, rồi vào URL Pages được cung cấp. Việc cấu hình cần làm trực tiếp trên tài khoản GitHub có quyền ghi; chưa được tự thực hiện trong bản bàn giao này.
+## Deploy lên GitHub Pages
 
-© Quân Dev — mẫu phát triển 2026.
+Repository hiện tại: https://github.com/quan-dev-offiicial/QuanDev-official
+Site dự kiến: https://quan-dev-offiicial.github.io/QuanDev-official/
 
-## Motion UI update
-- Hero staggered entrance, subtle decorative animation and interactive desktop spotlight.
-- Scroll-reveal for sections/cards via IntersectionObserver; project hover depth/light sweep and button micro-interactions.
-- Scroll-position progress line, price change micro-animation, dialog/FAQ transitions.
-- Supports `prefers-reduced-motion`; touch devices receive reduced visual workload.
-- No animation library and no requirement for extra hosting or paid services.
+**Quan trọng:** kết nối GitHub trong phiên tạo bản này chỉ có quyền đọc repo đó, nên website đang live **CHƯA được cập nhật tự động**.
+
+1. Tải ZIP, giải nén thành thư mục website. Các file `index.html`, `styles.css`, `app.js`, `inner.js`, `favicon.svg`, `robots.txt`, `sitemap.xml`, `privacy.html`, `404.html` và các thư mục `assets`, `cases`, `journal`, `demos` đều phải nằm **trực tiếp ở root repository**, không được đặt cả ZIP vào repo.
+2. An toàn nhất: tạo nhánh backup trước hoặc tải bản ZIP của repository gốc bằng GitHub > Code > Download ZIP.
+3. Sử dụng GitHub Desktop, VS Code Git hoặc upload file trong browser để thay thế source tại nhánh `main`. Nếu repo đã có `index (1).html` bản cũ, có thể để nguyên; GitHub Pages dùng `index.html`.
+4. Xác nhận `Settings → Pages → Deploy from a branch → main / (root)`. Quan sát Actions nếu build lỗi.
+5. Mở URL đã triển khai và test toàn bộ menu, giá, gửi form, demo và mobile. Làm test trên thiết bị thật trước khi quảng cáo.
+
+**Lệnh Git cho developer đã có repo clone:**
+
+```bash
+# Thay các file source sau khi backup trước (không xóa nhầm file khách hàng)
+git status
+git add index.html styles.css app.js inner.js favicon.svg robots.txt sitemap.xml privacy.html 404.html assets cases demos journal README.md
+git commit -m "Upgrade Quân Dev to Studio V3"
+git push origin main
+```
+
+> Nếu muốn giữ lịch sử chuẩn, hãy tạo branch rồi mở PR trước khi merge. Không có backend nào được tự ý thêm vào public repo.
+
+## Kiểm tra nhanh
+
+Chạy `python -m http.server 8080` tại thư mục website, mở `http://localhost:8080/`. Có thể mở `index.html` trực tiếp, nhưng gửi form cần kết nối Internet và xác nhận dịch vụ; thử bằng local server sẽ giống hosting hơn.
+
+**Check:** click 4 plan + tăng/giảm trang; mở/đóng cart option, chọn add-on; tải TXT và kiểm tra số; chuyển cấu hình xuống form; thử 4 demo (lọc menu/sản phẩm, giỏ, yêu cầu phòng, phiếu hẹn); bấm link case/blog; kiểm tra viewport 375px và 1440px; thử mạng chậm; xác minh form gửi tới email thật.
+
+## CRM riêng (file ZIP khác, KHÔNG đăng lên GitHub Pages)
+
+Có thể sử dụng `QuanDev_CRM_OFFLINE.html` trong gói **CRM Private** riêng để ghi khách bằng localStorage, lọc trạng thái và sao lưu JSON/CSV trên máy riêng. Không có server, không có đăng nhập, không đồng bộ. Nếu xóa dữ liệu trình duyệt sẽ mất record chưa backup. Dữ liệu liên hệ khách hàng không được upload công khai.
